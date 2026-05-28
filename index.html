@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Cortinas - Apresentação</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #e8e8e8;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* ===== PÁGINA A4 RETRATO ===== */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 10px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            page-break-after: always;
+            position: relative;
+            overflow: visible;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+        
+        /* ===== PÁGINA CAPA ===== */
+        .page-cover {
+            background: linear-gradient(135deg, #060022 0%, #1a0033 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .logo-container {
+            margin-bottom: 40px;
+        }
+        
+        .logo-container img {
+            max-width: 120px;
+            height: auto;
+        }
+        
+        .cover-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #fe9305;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .cover-title .gold {
+            color: #fe9305;
+            font-weight: 700;
+        }
+        
+        .cover-subtitle {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+        
+        .cover-description {
+            font-size: 15px;
+            color: rgba(255,255,255,0.85);
+            max-width: 450px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* ===== PÁGINA CONTEÚDO ===== */
+        .page-content {
+            justify-content: flex-start;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            align-items: flex-start;
+        }
+        
+        .page-light {
+            background: #fe9305;
+            color: #ffffff;
+        }
+        
+        .page-light h2 {
+            color: #060022;
+        }
+        
+        .page-light h3 {
+            color: #060022;
+        }
+        
+        .page-light p {
+            color: #ffffff;
+        }
+        
+        .page-light li {
+            color: #ffffff;
+        }
+        
+        .page-light .bullet-item:before {
+            color: #ffffff;
+        }
+        
+        .page-light .content-block p {
+            color: #ffffff;
+        }
+        
+        .page-light .grid-item p {
+            color: #ffffff;
+        }
+        
+        .page-light .grid-3-item p {
+            color: #ffffff;
+        }
+        
+        .page-light .bullet-item {
+            color: #ffffff;
+        }
+        
+        .page-dark {
+            background: #060022;
+            color: #ffffff;
+        }
+        
+        .page-dark h2 {
+            color: #fe9305;
+        }
+        
+        .page-dark h3 {
+            color: #fe9305;
+        }
+        
+        .page-dark p {
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .page-dark li {
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .page-dark .bullet-item:before {
+            color: #fe9305;
+        }
+        
+        /* ===== SEÇÃO TÍTULO ===== */
+        .section-title {
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .section-divider {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #fe9305 0%, transparent 100%);
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #060022;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+            line-height: 1.3;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-dark .section-title h2 {
+            color: #fe9305;
+        }
+        
+        .page-light .section-title h2 {
+            color: #060022;
+        }
+        
+        .section-title h2 .gold {
+            color: #fe9305;
+            font-weight: 700;
+        }
+        
+        .section-description {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.6;
+        }
+        
+        /* ===== CONTEÚDO ===== */
+        .content-block {
+            margin-bottom: 18px;
+            width: 100%;
+        }
+        
+        .content-block h3 {
+            font-size: 14px;
+            color: #060022;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .content-block h3 .gold {
+            color: #fe9305;
+            font-weight: 700;
+        }
+        
+        .page-dark .content-block h3 {
+            color: #fe9305;
+        }
+        
+        .page-light .content-block h3 {
+            color: #060022;
+        }
+        
+        .content-block p {
+            font-size: 12px;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            text-align: justify;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-dark .content-block p {
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .page-light .content-block p {
+            color: #ffffff;
+        }
+        
+        /* ===== LISTAS ===== */
+        .bullet-list {
+            list-style: none;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        .bullet-item {
+            font-size: 12px;
+            color: #666666;
+            margin-bottom: 6px;
+            line-height: 1.5;
+            display: flex;
+            gap: 10px;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .bullet-item:before {
+            content: "•";
+            color: #fe9305;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* ===== GRID 2 COLUNAS ===== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .grid-item {
+            padding: 18px;
+            background: #f9f8f6;
+            border-left: 3px solid #fe9305;
+        }
+        
+        .page-dark .grid-item {
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .page-light .grid-item {
+            background: rgba(0,0,0,0.15);
+        }
+        
+        .grid-item h3 {
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #060022;
+            line-height: 1.3;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-dark .grid-item h3 {
+            color: #fe9305;
+        }
+        
+        .page-light .grid-item h3 {
+            color: #060022;
+        }
+        
+        .grid-item p {
+            font-size: 11px;
+            color: #666666;
+            line-height: 1.5;
+            margin-bottom: 0;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-dark .grid-item p {
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .page-light .grid-item p {
+            color: #ffffff;
+        }
+        
+        /* ===== GRID 3 COLUNAS ===== */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .grid-3-item {
+            padding: 15px;
+            background: #f9f8f6;
+            border-left: 3px solid #fe9305;
+        }
+        
+        .page-dark .grid-3-item {
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .page-light .grid-3-item {
+            background: rgba(0,0,0,0.15);
+        }
+        
+        .grid-3-item h4 {
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #060022;
+            line-height: 1.3;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-dark .grid-3-item h4 {
+            color: #fe9305;
+        }
+        
+        .page-light .grid-3-item h4 {
+            color: #060022;
+        }
+        
+        .grid-3-item p {
+            font-size: 10px;
+            color: #666666;
+            line-height: 1.4;
+            margin-bottom: 0;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-dark .grid-3-item p {
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .page-light .grid-3-item p {
+            color: #ffffff;
+        }
+        
+        /* ===== PROCESSO ===== */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 42px;
+            height: 42px;
+            background: #fe9305;
+            color: #060022;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0 auto 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .step h4 {
+            font-size: 11px;
+            margin-bottom: 5px;
+            color: #060022;
+            line-height: 1.3;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-dark .step h4 {
+            color: #ffffff;
+        }
+        
+        .page-light .step h4 {
+            color: #060022;
+        }
+        
+        .step p {
+            font-size: 9px;
+            color: #666666;
+            line-height: 1.3;
+            margin-bottom: 0;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-dark .step p {
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .page-light .step p {
+            color: #ffffff;
+        }
+        
+        /* ===== IMAGENS ===== */
+        .image-placeholder {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            background: linear-gradient(135deg, #fe9305 0%, #ffb81c 100%);
+            border-radius: 4px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0,0,0,0.2);
+            font-size: 11px;
+            overflow: hidden;
+        }
+        
+        .page-light .image-placeholder {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+        }
+        
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 4px;
+            background: inherit;
+        }
+        
+        /* ===== GALERIA ===== */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 16/9;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e0e0e0;
+            position: relative;
+            min-height: 150px;
+        }
+        
+        .page-dark .gallery-item {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-placeholder {
+            color: #999999;
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .page-dark .gallery-placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* ===== PROJETOS LADO A LADO ===== */
+        .projects-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            width: 100%;
+        }
+        
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* ===== CONTATO ===== */
+        .contact-section {
+            background: #060022;
+            color: #ffffff;
+            padding: 35px;
+            border-radius: 4px;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .contact-section h2 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .contact-section h2 .gold {
+            color: #fe9305;
+        }
+        
+        .contact-info {
+            margin-bottom: 18px;
+        }
+        
+        .contact-info p {
+            color: rgba(255,255,255,0.8);
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        
+        .contact-info strong {
+            color: #fe9305;
+            font-weight: 600;
+        }
+        
+        .contact-info a {
+            color: #fe9305;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #ffb81c;
+            text-decoration: underline;
+        }
+        
+        /* ===== FOOTER ===== */
+        .page-footer {
+            background: #060022;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .page-footer h2 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        .page-footer h2 .gold {
+            color: #fe9305;
+        }
+        
+        .footer-info {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        
+        .footer-info p {
+            color: rgba(255,255,255,0.85);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .footer-info strong {
+            color: #fe9305;
+            font-weight: 600;
+        }
+        
+        .footer-info a {
+            color: #fe9305;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-info a:hover {
+            color: #ffb81c;
+            text-decoration: underline;
+        }
+        
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 1024px) {
+            .page {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 40px;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 25px;
+            }
+            
+            .cover-title {
+                font-size: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== PÁGINA 1: CAPA ===== -->
+<div class="page page-cover">
+    <div class="logo-container">
+        <img src="logo.jpg" alt="Classic Cortinas">
+    </div>
+    
+    <h1 class="cover-title" style="white-space: nowrap;">
+        Cortinas Sob Medida
+    </h1>
+    
+    <p class="cover-subtitle">Soluções Para Ambientes Institucionais</p>
+    
+    <p class="cover-description" style="display: none;"></p>
+</div>
+
+<!-- ===== PÁGINA 2: QUEM SOMOS ===== -->
+<div class="page page-content page-dark">
+    <div class="section-title">
+        <div class="section-divider"></div>
+        <h2 style="font-size: 16px; line-height: 1.4; color: #ffffff; white-space: nowrap;">Por que escolher a <span style="color: #fe9305; font-size: 20px; font-weight: 800;">Classic</span> Cortinas sob medida?</h2>
+    </div>
+    
+    <div class="content-block">
+        <h3>Experiência E Qualidade</h3>
+        <p>
+            Atuamos com soluções completas em cortinas e persianas, atendendo ambientes institucionais com foco em funcionalidade, estética e durabilidade.
+        </p>
+        <p>
+            Nosso trabalho é baseado na personalização de cada projeto, considerando as necessidades específicas de cada espaço, seja em escritórios, instituições, hotéis ou ambientes comerciais.
+        </p>
+        <p>
+            Oferecemos desde a definição do modelo ideal até o fornecimento do produto, com organização e clareza em todas as etapas.
+        </p>
+    </div>
+    
+    <div class="content-block">
+        <h3>Nossos Diferenciais</h3>
+        <ul class="bullet-list">
+            <li class="bullet-item">Atendimento personalizado, com entendimento real da necessidade do cliente</li>
+            <li class="bullet-item">Transparência em todas as etapas do processo</li>
+            <li class="bullet-item">Cumprimento de prazos acordados</li>
+            <li class="bullet-item">Comunicação clara durante produção e entrega</li>
+            <li class="bullet-item">Facilidade na execução do projeto, do início ao fim</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== PÁGINA 3: CORTINAS E PERSIANAS ===== -->
+<div class="page page-content page-light">
+    <div style="width: 100%; max-width: 500px; margin: 0 auto;">
+        <div class="section-title">
+            <div class="section-divider"></div>
+            <h2 style="white-space: nowrap; font-size: 26px;">Cortinas Sob Medida</h2>
+        </div>
+        
+        <div class="grid-2">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="image-placeholder">
+                    <img src="cortina-wave-linho.jpeg" alt="Cortina Wave Linho" onerror="this.style.display='none'">
+                </div>
+                <h3 style="white-space: nowrap; font-size: 13px; margin: 10px 0;">Cortina Wave Linho</h3>
+                <p style="font-size: 11px; color: #ffffff; line-height: 1.5; text-align: justify; word-spacing: -0.05em;">
+                    Ideal para ambientes que precisam de luminosidade natural com controle da incidência direta de luz e garantia de privacidade.
+                </p>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="image-placeholder">
+                    <img src="cortina-wave-blackout.JPG" alt="Cortina Wave Blackout" onerror="this.style.display='none'">
+                </div>
+                <h3 style="white-space: nowrap; font-size: 13px; margin: 10px 0;">Cortina Wave Blackout</h3>
+                <p style="font-size: 11px; color: #ffffff; line-height: 1.5; text-align: justify; word-spacing: -0.05em;">
+                    Indicada para ambientes que necessitam de maior controle de luminosidade, proporcionando escurecimento e conforto visual.
+                </p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <div class="section-title">
+                <div class="section-divider"></div>
+                <h2 style="white-space: nowrap; font-size: 26px;">Persianas Funcionais</h2>
+            </div>
+            
+            <div class="grid-3">
+                <div>
+                    <div class="image-placeholder">
+                        <img src="persiana-rolo.jpeg" alt="Persiana Rolô" onerror="this.style.display='none'">
+                    </div>
+                    <h4 style="white-space: nowrap; font-size: 12px; color: #060022;">Persiana Rolô</h4>
+                    <p style="color: #ffffff; text-align: justify; font-size: 10px; word-spacing: -0.05em;">
+                        Prática, funcional e com excelente custo-benefício para ambientes institucionais.
+                    </p>
+                </div>
+                
+                <div>
+                    <div class="image-placeholder">
+                        <img src="persiana-romana.jpeg" alt="Persiana Romana" onerror="this.style.display='none'">
+                    </div>
+                    <h4 style="white-space: nowrap; font-size: 12px; color: #060022;">Persiana Romana</h4>
+                    <p style="color: #ffffff; text-align: justify; font-size: 10px; word-spacing: -0.05em;">
+                        Combina estética e funcionalidade, ideal para ambientes que exigem um acabamento diferenciado.
+                    </p>
+                </div>
+                
+                <div>
+                    <div class="image-placeholder">
+                        <img src="persiana-vertical.jpeg" alt="Persiana Vertical" onerror="this.style.display='none'">
+                    </div>
+                    <h4 style="white-space: nowrap; font-size: 12px; color: #060022;">Persiana Vertical</h4>
+                    <p style="color: #ffffff; text-align: justify; font-size: 10px; word-spacing: -0.05em;">
+                        Versátil e muito utilizada em ambientes institucionais, com ótimo controle de luminosidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+<!-- ===== PÁGINA 4: PROCESSO E CAPACIDADE ===== -->
+<div class="page page-content page-dark">
+    <div style="width: 100%; max-width: 500px; margin: 0 auto;">
+        <div class="section-title">
+            <div class="section-divider"></div>
+            <h2>Nosso Processo</h2>
+        </div>
+        
+        <div class="process-steps" style="grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px;">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Levantamento</h4>
+                <p style="white-space: nowrap;">Análise das necessidades</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Definição</h4>
+                <p style="white-space: nowrap;">Modelos adequados</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Orçamento</h4>
+                <p style="white-space: nowrap;">Proposta clara</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Produção</h4>
+                <p style="white-space: nowrap;">Fabricação</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <h4>Entrega</h4>
+                <p style="white-space: nowrap;">Instalação</p>
+            </div>
+        </div>
+        
+        <div class="content-block" style="margin-top: 15px;">
+            <h3>Detalhes Do Processo</h3>
+            <ul class="bullet-list">
+                <li class="bullet-item"><strong>1. Levantamento:</strong> Visitamos o local e entendemos suas necessidades específicas</li>
+                <li class="bullet-item"><strong>2. Definição:</strong> Apresentamos as melhores soluções para seu espaço</li>
+                <li class="bullet-item"><strong>3. Orçamento:</strong> Proposta clara com todos os detalhes e prazos</li>
+                <li class="bullet-item"><strong>4. Produção:</strong> Fabricação sob medida com qualidade garantida</li>
+                <li class="bullet-item"><strong>5. Entrega:</strong> Instalação profissional e suporte pós-venda</li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(254, 147, 5, 0.3);">
+            <div class="section-title">
+                <div class="section-divider"></div>
+                <h2 style="white-space: nowrap; font-size: 24px;">Capacidade De Atendimento</h2>
+            </div>
+            
+            <div class="grid-2">
+                <div class="grid-item">
+                    <h3>Projetos Em Escala</h3>
+                    <p style="text-align: justify;">
+                        Possuímos estrutura e parcerias que permitem atender desde demandas pontuais até projetos em maior escala, incluindo múltiplas unidades e complexos institucionais.
+                    </p>
+                </div>
+                
+                <div class="grid-item">
+                    <h3>Modelo Adaptável</h3>
+                    <p style="text-align: justify;">
+                        Nosso modelo de trabalho é flexível e adaptável, permitindo atender diferentes formatos de projeto conforme a necessidade específica de cada empresa.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <h3>Região De Atendimento</h3>
+                <p>
+                    Atendemos presencialmente na região de <strong>Paracatu-MG</strong>. Para projetos institucionais, avaliamos demandas em outras localidades, estruturando o atendimento conforme a necessidade.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PÁGINA 5: PROJETOS REALIZADOS ===== -->
+<div class="page page-content page-light">
+    <div style="width: 100%; max-width: 500px; margin: 0 auto;">
+        <div class="section-title">
+            <div class="section-divider"></div>
+            <h2>Projetos Realizados</h2>
+        </div>
+        
+        <div class="projects-row">
+            <div class="project-item">
+                <div class="image-placeholder" style="width: 100%; max-width: 150px;">
+                    <img src="projeto-1.JPG" alt="Projeto 1" onerror="this.style.display='none'">
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="image-placeholder" style="width: 100%; max-width: 150px;">
+                    <img src="projeto-2.jpeg" alt="Projeto 2" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+        
+        <div class="projects-row" style="margin-top: 20px;">
+            <div class="project-item">
+                <div class="image-placeholder" style="width: 100%; max-width: 150px;">
+                    <img src="projeto-3.jpeg" alt="Projeto 3" onerror="this.style.display='none'">
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="image-placeholder" style="width: 100%; max-width: 150px;">
+                    <img src="projeto-4.jpeg" alt="Projeto 4" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+        
+        <div class="projects-row" style="margin-top: 20px;">
+            <div class="project-item">
+                <div class="image-placeholder" style="width: 100%; max-width: 150px;">
+                    <img src="projeto-5.jpeg" alt="Projeto 5" onerror="this.style.display='none'">
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="image-placeholder" style="width: 100%; max-width: 150px;">
+                    <img src="projeto-6.JPG" alt="Projeto 6" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PÁGINA 6: CONTATO ===== -->
+<div class="page page-footer">
+    <div class="section-title">
+        <div class="section-divider"></div>
+        <h2 style="color: #fe9305;">Vamos Conversar</h2>
+    </div>
+    <div class="contact-section">
+        <div class="contact-info">
+            <p><strong>Telefone / WhatsApp</strong></p>
+            <p><a href="https://wa.me/5538997298648" target="_blank" style="color: #ffffff;">(38) 99729-8648 📱</a></p>
+        </div>
+        
+        <div class="contact-info">
+            <p><strong>Email</strong></p>
+            <p><a href="mailto:classiccortinassobmedida@gmail.com" style="color: #ffffff;">classiccortinassobmedida@gmail.com</a></p>
+        </div>
+        
+        <div class="contact-info">
+            <p><strong>Localização</strong></p>
+            <p>Paracatu, MG</p>
+        </div>
+        
+        <div class="contact-info" style="margin-top: 20px;">
+            <p><strong>Redes Sociais</strong></p>
+            <p style="color: #ffffff;">
+                <a href="https://instagram.com/classiccortinas" target="_blank" style="color: #ffffff;">📷 Instagram</a> • 
+                <a href="https://wa.me/5538997298648" target="_blank" style="color: #ffffff;">💬 WhatsApp</a> • 
+                <a href="mailto:classiccortinassobmedida@gmail.com" style="color: #ffffff;">✉️ Email</a>
+            </p>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px; text-align: center;">
+        <a href="https://instagram.com/classiccortinas" target="_blank" style="display: inline-block; padding: 16px 40px; background: #fe9305; color: #060022; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 15px; letter-spacing: 0.05em; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(254, 147, 5, 0.3);">
+            📷 Visite nosso Instagram
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
